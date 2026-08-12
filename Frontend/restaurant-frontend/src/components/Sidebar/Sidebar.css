@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap');
+
+:root {
+    --sb-primary: #8B1A1A;
+    --sb-primary-dark: #6B1212;
+    --sb-background: #FDF5F5;
+    --sb-white: #ffffff;
+    --sb-text: #262626;
+    --sb-text-light: #707070;
+    --sb-border: #ECECEC;
+
+    --sb-collapsed: 76px;
+    --sb-expanded: 260px;
+}
+
+/* ==========================================
+   Sidebar shell
+========================================== */
+
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: var(--sb-collapsed);
+    background: #161616;
+    border-right: 1px solid rgba(255,255,255,.06);
+    display: flex;
+    flex-direction: column;
+    padding: 26px 14px;
+    overflow: hidden;
+    z-index: 200;
+    transition: width .28s cubic-bezier(.4,0,.2,1), box-shadow .28s;
+}
+
+.sidebar.expanded {
+    width: var(--sb-expanded);
+    box-shadow: 12px 0 40px rgba(0,0,0,.5);
+}
+
+/* ==========================================
+   Logo
+========================================== */
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 36px;
+    padding: 0 6px;
+    height: 42px;
+}
+
+.sidebar-logo-icon {
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 1px solid rgba(255,255,255,.15);
+}
+
+.sidebar-logo h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 16px;
+    color: #fff;
+    line-height: 1.2;
+    white-space: nowrap;
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    transition: opacity .2s, width .28s;
+}
+
+.sidebar.expanded .sidebar-logo h2 {
+    opacity: 1;
+    width: auto;
+}
+
+/* ==========================================
+   Nav groups
+========================================== */
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    flex: 1;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.nav-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-bottom: 14px;
+}
+
+.nav-group-title {
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,.35);
+    padding: 0 16px;
+    height: 0;
+    opacity: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    transition: opacity .2s, height .2s, margin .2s;
+}
+
+.sidebar.expanded .nav-group-title {
+    height: 22px;
+    opacity: 1;
+    margin-bottom: 2px;
+}
+
+/* ==========================================
+   Nav items
+========================================== */
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 16px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: rgba(255,255,255,.65);
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: background .2s, color .2s;
+    white-space: nowrap;
+}
+
+.sidebar:not(.expanded) .nav-item {
+    justify-content: center;
+    padding: 13px 0;
+}
+
+.nav-item:hover {
+    background: rgba(255,255,255,.07);
+    color: #fff;
+}
+
+.nav-item.active {
+    background: linear-gradient(135deg, var(--sb-primary), #C0392B);
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(139,26,26,.40);
+}
+
+.nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    width: 20px;
+    min-width: 20px;
+}
+
+.nav-label {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
+    transition: opacity .2s, width .28s;
+}
+
+.sidebar.expanded .nav-label {
+    opacity: 1;
+    width: auto;
+}
+
+.settings-item {
+    margin-top: 8px;
+    border-top: 1px solid rgba(255,255,255,.10);
+    padding-top: 17px;
+    border-radius: 0;
+    margin-bottom: 4px;
+}
+
+/* ==========================================
+   Logout
+========================================== */
+
+.sidebar-logout {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 13px 16px;
+    border: none;
+    border-radius: 12px;
+    background: transparent;
+    color: rgba(255,255,255,.65);
+    cursor: pointer;
+    font-size: 14.5px;
+    font-weight: 500;
+    transition: background .2s, color .2s;
+    font-family: "DM Sans", sans-serif;
+    white-space: nowrap;
+}
+
+.sidebar:not(.expanded) .sidebar-logout {
+    justify-content: center;
+    padding: 13px 0;
+}
+
+.sidebar-logout:hover {
+    background: rgba(180,35,24,.18);
+    color: #FF6B6B;
+}
+
+@media (max-width: 900px) {
+    .sidebar {
+        display: none;
+    }
+}

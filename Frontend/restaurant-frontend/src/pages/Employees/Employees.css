@@ -1,0 +1,265 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap');
+
+:root{
+    --primary:#8B1A1A;
+    --primary-dark:#6B1212;
+    --primary-light:rgba(139,26,26,.08);
+    --background:#FDF5F5;
+    --white:#fff;
+    --text:#262626;
+    --text-light:#707070;
+    --border:#ECECEC;
+    --shadow:0 20px 50px rgba(0,0,0,.06);
+    --radius:20px;
+}
+
+.employee-card{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:18px;
+}
+
+.employee-card svg{
+    width:48px;
+    height:48px;
+    padding:12px;
+    border-radius:14px;
+    background:var(--primary-light);
+    color:var(--primary);
+}
+
+.employee-card h2{
+    font-family:"Playfair Display",serif;
+    font-size:28px;
+}
+
+.header-date{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    padding:12px 18px;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:12px;
+    font-weight:600;
+}
+
+.employee-search{
+    width:320px;
+    height:46px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:0 18px;
+    font-size:14px;
+    background:var(--background);
+    transition:.25s;
+    font-family:"DM Sans",sans-serif;
+}
+
+.employee-search:focus{
+    outline:none;
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(139,26,26,.08);
+}
+
+.add-employee-btn{
+    height:46px;
+    padding:0 24px;
+    border:none;
+    border-radius:12px;
+    background:linear-gradient(135deg,var(--primary),#C0392B);
+    color:#fff;
+    font-weight:600;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:10px;
+    transition:.25s;
+}
+
+.add-employee-btn:hover{
+    background:var(--primary-dark);
+}
+
+.employee-table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:25px;
+}
+
+.employee-table th{
+    text-align:left;
+    padding:16px 0;
+    font-size:13px;
+    color:var(--text-light);
+    border-bottom:1px solid var(--border);
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.employee-table td{
+    padding:18px 0;
+    border-bottom:1px solid var(--border);
+    font-size:14px;
+}
+.employee-table tr{
+    transition:.25s;
+}
+
+.employee-table tbody tr:hover{
+    background:rgba(139,26,26,.03);
+}
+
+.employee-table tbody tr:last-child td{
+    border-bottom:none;
+}
+
+.employee-info{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.employee-avatar{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:var(--primary-light);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    flex-shrink:0;
+}
+
+.employee-info strong{
+    display:block;
+    font-size:15px;
+    margin-bottom:4px;
+    color:var(--text);
+}
+
+.employee-info p{
+    color:var(--text-light);
+    font-size:13px;
+}
+
+.salary{
+    font-weight:700;
+    color:var(--primary);
+}
+
+.employee-type{
+    display:inline-block;
+    padding:6px 14px;
+    border-radius:50px;
+    font-size:12px;
+    font-weight:600;
+}
+
+.employee-type.chef{
+    background:#FFF6E0;
+    color:#B7791F;
+}
+
+.employee-type.waiter{
+    background:#E9F9EF;
+    color:#1D8348;
+}
+
+.employee-type.delivery{
+    background:#E8F2FF;
+    color:#2563EB;
+}
+
+.table-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.edit-btn,
+.delete-btn{
+    width:36px;
+    height:36px;
+    border:none;
+    border-radius:10px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.25s;
+}
+
+.edit-btn{
+    background:rgba(139,26,26,.08);
+    color:var(--primary);
+}
+
+.edit-btn:hover{
+    background:var(--primary);
+    color:#fff;
+}
+
+.delete-btn{
+    background:#FFE9ED;
+    color:#B42318;
+}
+
+.delete-btn:hover{
+    background:#B42318;
+    color:#fff;
+}
+
+@media(max-width:1100px){
+
+    .employee-search{
+        width:220px;
+    }
+
+}
+
+@media(max-width:900px){
+
+    .panel-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:18px;
+    }
+
+    .employee-search{
+        width:100%;
+    }
+
+    .add-employee-btn{
+        width:100%;
+        justify-content:center;
+    }
+
+    .employee-table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+}
+
+@media(max-width:600px){
+
+    .employee-card h2{
+        font-size:22px;
+    }
+
+    .header-date{
+        width:100%;
+        justify-content:center;
+        margin-top:15px;
+    }
+
+    .content-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}

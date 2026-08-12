@@ -1,0 +1,276 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=DM+Sans:wght@300;400;500;700&display=swap');
+
+:root{
+    --primary:#8B1A1A;
+    --primary-dark:#6B1212;
+    --primary-light:rgba(139,26,26,.08);
+    --background:#FDF5F5;
+    --white:#fff;
+    --text:#262626;
+    --text-light:#707070;
+    --border:#ECECEC;
+    --shadow:0 20px 50px rgba(0,0,0,.06);
+    --radius:20px;
+}
+
+.purchase-card{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    margin-top:18px;
+}
+
+.purchase-card svg{
+    width:48px;
+    height:48px;
+    color:var(--primary);
+    background:var(--primary-light);
+    padding:12px;
+    border-radius:14px;
+}
+
+.purchase-card h2{
+    font-size:28px;
+    font-family:"Playfair Display",serif;
+}
+
+.header-date{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    background:white;
+    padding:12px 18px;
+    border-radius:12px;
+    border:1px solid var(--border);
+    font-weight:600;
+}
+
+.purchase-form{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+    margin-top:25px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+}
+
+.form-group label{
+    margin-bottom:8px;
+    font-size:14px;
+    font-weight:600;
+    color:var(--text);
+}
+
+.form-group input,
+.form-group select{
+    height:48px;
+    border:1px solid var(--border);
+    border-radius:12px;
+    padding:0 15px;
+    font-size:14px;
+    background:var(--background);
+    transition:.25s;
+    font-family:"DM Sans",sans-serif;
+}
+
+.form-group input:focus,
+.form-group select:focus{
+    outline:none;
+    border-color:var(--primary);
+    box-shadow:0 0 0 4px rgba(139,26,26,.08);
+}
+
+.add-item-btn{
+    align-self:end;
+    height:48px;
+    border:none;
+    border-radius:12px;
+    background:var(--primary);
+    color:white;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    font-size:15px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.add-item-btn:hover{
+    background:var(--primary-dark);
+}
+
+.invoice-box{
+    margin-top:28px;
+    border:2px dashed rgba(139,26,26,.2);
+    border-radius:18px;
+    background:#fff;
+    padding:30px;
+}
+
+.invoice-box h4{
+    font-family:"Playfair Display",serif;
+    margin-bottom:12px;
+    color:var(--primary);
+}
+
+.invoice-box p{
+    color:var(--text-light);
+    font-size:14px;
+}
+
+.invoice-footer{
+    margin-top:25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    border-top:1px solid var(--border);
+    padding-top:20px;
+}
+
+.invoice-footer span{
+    color:var(--text-light);
+}
+
+.invoice-footer h2{
+    margin-top:8px;
+    font-size:30px;
+    font-family:"Playfair Display",serif;
+}
+.save-btn{
+    border:none;
+    background:linear-gradient(135deg,var(--primary),#C0392B);
+    color:white;
+    padding:15px 28px;
+    border-radius:12px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:600;
+    transition:.25s;
+    box-shadow:0 10px 25px rgba(139,26,26,.25);
+}
+
+.save-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 15px 35px rgba(139,26,26,.35);
+}
+
+.history-panel{
+    margin-top:30px;
+}
+
+.history-panel .panel-header{
+    margin-bottom:20px;
+}
+
+.history-panel p{
+    color:var(--text-light);
+    font-size:14px;
+    margin-top:4px;
+}
+
+.purchase-table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+.purchase-table thead th{
+    text-align:left;
+    padding:15px 0;
+    border-bottom:1px solid var(--border);
+    color:var(--text-light);
+    font-size:13px;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+}
+
+.purchase-table tbody td{
+    padding:18px 0;
+    border-bottom:1px solid var(--border);
+    font-size:14px;
+}
+
+.purchase-table tbody tr{
+    transition:.2s;
+}
+
+.purchase-table tbody tr:hover{
+    background:rgba(139,26,26,.03);
+}
+
+.purchase-table tbody tr:last-child td{
+    border-bottom:none;
+}
+
+.purchase-table .amount{
+    font-weight:700;
+    color:var(--primary);
+}
+
+.purchase-table td:nth-child(2){
+    font-weight:600;
+}
+
+.purchase-table td:nth-child(3){
+    color:var(--text-light);
+}
+
+.panel-subtitle{
+    color:var(--text-light);
+    font-size:14px;
+}
+
+@media (max-width:1100px){
+
+    .purchase-form{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media (max-width:768px){
+
+    .purchase-form{
+        grid-template-columns:1fr;
+    }
+
+    .invoice-footer{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:20px;
+    }
+
+    .save-btn{
+        width:100%;
+    }
+
+    .purchase-table{
+        display:block;
+        overflow-x:auto;
+        white-space:nowrap;
+    }
+
+}
+
+@media (max-width:600px){
+
+    .purchase-card h2{
+        font-size:22px;
+    }
+
+    .header-date{
+        margin-top:15px;
+        width:100%;
+        justify-content:center;
+    }
+
+    .content-header{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+}
